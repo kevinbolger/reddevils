@@ -14,38 +14,50 @@ if (!fs.existsSync(HISTORY_FILE)) {
 // --- MOCK DATA (Thematic Brainrot Approach) ---
 // We are simulating accurate 24h windows (9AM GMT - 9AM GMT)
 const MOCK_REDDIT_DATA = [
-    // --- FEB 01 EDITION (Real Data from Today) ---
+    // --- FEB 01 EDITION (Meta-Commentary & Themes) ---
     { 
-        id: 'theme_carrick', date: '2026-02-01',
-        type: 'theme',
-        title: 'THE CARRICK REVOLUTION 👔', 
+        id: 'sentiment_contract', date: '2026-02-01',
+        type: 'sentiment',
+        title: 'GIVE HIM THE CONTRACT 📝', 
         image_url: 'https://preview.redd.it/ahmq77n7pwgg1.jpeg?width=960&crop=smart&auto=webp&s=123c33959b1d89400b592d578d1878f9d7310e9f',
-        summary: "It's official: Michael Carrick has equalled Ruben Amorim's *entire* winning record in just 3 games. The 3-4-3 experiment is dead. We are back to 4-3-3 vibes and the boys are actually smiling again.",
-        punditry: "THE CHATTER 🗣️: 'Amorim made football look like calculus. Carrick makes it look like vibes.' <br> THE VERDICT ⚖️: Give him the contract before I crash out. 📝",
+        summary: "We aren't just reacting to the win record. We are reacting to the *vibes*. The 'Interim' label feels like an insult now. The timeline is unanimous: lock Michael Carrick down before Real Madrid gets any ideas.",
+        punditry: "THE CONSENSUS 🤝: It's not recency bias. It's eyes-open reality. The players would run through a brick wall for him. Stop the search. He is him.",
         links: [
-            { text: "See the stats 📊", url: "https://reddit.com/r/reddevils/comments/1qt2bqn/" }
+            { text: "The Petition (Thread) 📜", url: "https://reddit.com/r/reddevils/comments/1qt2bqn/" },
+            { text: "McTominay's Endorsement 🗣️", url: "https://reddit.com/r/reddevils/comments/1qod6kd/" }
         ]
     },
     { 
-        id: 'theme_air_sesko', date: '2026-02-01',
+        id: 'analysis_tactics', date: '2026-02-01',
+        type: 'analysis',
+        title: 'TACTICAL MASTERCLASS: THE 4-3-3 IS BACK 🧠', 
+        image_url: 'https://images.unsplash.com/photo-1516216628259-9474995ae61e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', // Tactical board placeholder
+        summary: "While everyone celebrates the goals, the real ones are noticing the shape. No more chaotic pressing. We controlled the midfield for 90 minutes. Bruno playing deeper? Genius. Casemiro protected? Essential.",
+        punditry: "NERD CORNER 🤓: 'The heatmap doesn't lie. We actually used the width today. Amorim ball was too narrow. This is heritage United football.'",
+        links: [
+            { text: "See the Heatmaps 🗺️", url: "#" }
+        ]
+    },
+    { 
+        id: 'vibe_stretford', date: '2026-02-01',
+        type: 'vibe',
+        title: 'THE STRETFORD END IS HEALING ❤️‍🩹', 
+        video_src: 'https://v.redd.it/bgkxixynuwgg1/CMAF_720.mp4?source=fallback', // Casemiro ovation video
+        summary: "You could hear it through the TV. The roar when Casemiro came off? That wasn't just applause; that was an apology. The toxicity is gone. Nature is healing.",
+        punditry: "FEELS 🥺: 'I haven't heard Old Trafford this loud since Fergie left. We are so back.'",
+        links: [
+            { text: "Listen to the roar 🔊", url: "https://reddit.com/r/reddevils/comments/1qt52h6/" }
+        ]
+    },
+    { 
+        id: 'theme_sesko', date: '2026-02-01',
         type: 'theme',
-        title: 'AIR ŠEŠKO CLEARED FOR TAKEOFF ✈️', 
+        title: 'A STRIKER WHO BULLIES PEOPLE 🦍', 
         image_url: 'https://preview.redd.it/wlxfluxsswgg1.jpeg?width=960&crop=smart&auto=webp&s=ec3b789a9e1f9568fe958e1edf11fb4a27413d83',
-        summary: "Benjamin Sesko posting 'Fergie Time' on IG is the energy we needed. We finally have a striker who bullies defenders in the air. 4 goals in 3 games. Hojlund has a partner in crime.",
-        punditry: "ON GOD ✝️: 'We finally have a striker who feeds on chaos. The cross-and-inshallah tactic actually works now.'",
+        summary: "Sesko isn't just scoring; he is traumatizing defenders. The comment section is filled with people crying tears of joy because we finally won a header in the opposition box.",
+        punditry: "REAL TALK 💯: 'We used to pray for times like this. A proper #9. Hojlund + Sesko = Chaos.'",
         links: [
-            { text: "Check the drip 💧", url: "https://reddit.com/r/reddevils/comments/1qt2vf3/" }
-        ]
-    },
-    { 
-        id: 'theme_midfield_ogs', date: '2026-02-01',
-        type: 'theme',
-        title: 'THE OGs ARE COOKING 🥘', 
-        video_src: 'https://v.redd.it/bgkxixynuwgg1/CMAF_720.mp4?source=fallback',
-        summary: "Apologize to Casemiro right now. Standing ovation at Old Trafford. No-look assist. Meanwhile, Bruno matched his best-ever assist record (12). The old guard isn't finished yet.",
-        punditry: "VIBE CHECK ✅: 'Class is permanent. Form is temporary. Put some respect on the tank.'",
-        links: [
-            { text: "Bruno Stats 📈", url: "https://reddit.com/r/reddevils/comments/1qt2w12/" }
+            { text: "Sesko Highlights", url: "https://reddit.com/r/reddevils/comments/1qt2vf3/" }
         ]
     },
 
