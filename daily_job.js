@@ -19,43 +19,50 @@ const MOCK_REDDIT_DATA = [
         id: '1qt2bqn', created_utc: 1769961818, date: '2026-02-01',
         title: 'Carrick Equals Record', ups: 6113, 
         permalink: '/r/reddevils/comments/1qt2bqn/michael_carrick_has_equalled_ruben_amorims/', 
-        summary: "Michael Carrick has equalled Ruben Amorim’s best-ever winning run at Manchester United (three games). Amorim had 47 games. Carrick has had 3. The stats don't lie.",
-        punditry: "Top comment: 'He's actually doing it. The mad lad.' Streets saying: Give him the contract now. 📝"
+        image_url: 'https://preview.redd.it/ahmq77n7pwgg1.jpeg?width=960&crop=smart&auto=webp&s=123c33959b1d89400b592d578d1878f9d7310e9f',
+        summary: "Michael Carrick has equalled Ruben Amorim’s best-ever winning run at Manchester United (three games). Amorim had 47 games. Carrick has had 3. The stats don't lie. Everyone is asking if we judged him too harshly? The caretaker bounce is real. He has simplified the tactics, restored confidence, and let the players play.",
+        punditry: "Top comment analysis: 'It's not just the wins, it's the vibe. The players look like they actually want to be there. Amorim tried to over-complicate it with the 3-4-3 system that didn't fit our personnel. Carrick went back to basics: 4-3-3, put best players in best positions. Simple football.' <br><br> Streets saying: Give him the contract now. 📝"
     },
     { 
         id: '1qt2vf3', created_utc: 1769963028, date: '2026-02-01',
         title: 'Sesko Air', ups: 4981, 
         permalink: '/r/reddevils/comments/1qt2vf3/air_šeško/', 
-        summary: "Benjamin Sesko posted 'Fergie Time' on Instagram after the late winner. The Stretford End is already singing his name. He's scored 4 in his last 3 games.",
-        punditry: "Fans are losing it: 'We finally have a striker who feeds on chaos.' 😤"
+        image_url: 'https://preview.redd.it/wlxfluxsswgg1.jpeg?width=960&crop=smart&auto=webp&s=ec3b789a9e1f9568fe958e1edf11fb4a27413d83',
+        summary: "Benjamin Sesko posted 'Fergie Time' on Instagram after the late winner. The Stretford End is already singing his name. He's scored 4 in his last 3 games and looks like the 9 we've been waiting for. His aerial dominance gives us a dimension we haven't had since Cavani.",
+        punditry: "Tactical breakdown: 'Notice how he drifts to the back post? That's elite movement. Hojlund does the hard running, Sesko finds the space. They can actually play together.' <br><br> Fans are losing it: 'We finally have a striker who feeds on chaos.' 😤"
     },
     { 
         id: '1qt2w12', created_utc: 1769963065, date: '2026-02-01',
         title: 'Bruno 12 Assists', ups: 2646, 
         permalink: '/r/reddevils/comments/1qt2w12/bruno_fernandes_has_registered_12_assists_in_the/', 
-        summary: "Bruno Fernandes has registered 12 assists in the Premier League this season, equalling his best-ever return. He is still the heartbeat of this team.",
-        punditry: "Analysis: 'People said he was washed. He took that personally.' 🐐"
+        image_url: 'https://preview.redd.it/yq6iwb2uswgg1.png?width=960&crop=smart&auto=webp&s=7e4d5aa94acfe4eb3ff6a6a5b7ae38306f13730b',
+        summary: "Bruno Fernandes has registered 12 assists in the Premier League this season, equalling his best-ever return. He is still the heartbeat of this team. People doubted his legs, but his brain is faster than anyone else on the pitch.",
+        punditry: "Stat attack: 'He created 7 big chances today alone. 7. That is outrageous numbers. Put some respect on his name.' <br><br> Analysis: 'People said he was washed. He took that personally.' 🐐"
     },
     { 
         id: '1qt52h6', created_utc: 1769967790, date: '2026-02-01',
         title: 'Casemiro Standing Ovation', ups: 4603, 
         permalink: '/r/reddevils/comments/1qt52h6/casemiro_received_a_standing_ovation_from_old/', 
-        summary: "Casemiro received a massive standing ovation from Old Trafford. That no-look assist was pure filth.",
-        punditry: "Reddit reacts: 'Class is permanent. Form is temporary. Respect the tank.' 🛡️"
+        image_url: 'https://external-preview.redd.it/cGh5NWwzMG91d2dnMRSuD_3jpL-m5o-Hq1ArzUoQ-jal4N5l_YIIvul3eruD.png?width=960&crop=smart&format=pjpg&auto=webp&s=d2d51a4d3ded473985fca10895cd3f95cba41bfd',
+        video: true,
+        summary: "Casemiro received a massive standing ovation from Old Trafford. That no-look assist was pure filth. Form is temporary, class is permanent. He controlled the midfield tempo perfectly today, breaking up play like it was 2022 again.",
+        punditry: "Reddit reacts: 'Everyone wanted him sold in Jan. Now he's running the show. Just needed a rest and a system that protects him.' <br><br> Vibes: 'Class is permanent. Form is temporary. Respect the tank.' 🛡️"
     },
 
-    // --- JAN 31 EDITION (Generic/Mock History - STRICTLY DIFFERENT CONTENT) ---
+    // --- JAN 31 EDITION (Historical Filler/Context) ---
     { 
         id: 'jan31_1', created_utc: 1769932800, date: '2026-01-31',
         title: 'Amad Training Screamers', ups: 3000, permalink: '/r/reddevils/top/?t=week', 
-        summary: "Training footage released today shows Amad scoring worldies against Onana. The kid is knocking on the door.",
-        punditry: "Comments saying: 'If he doesn't start, we riot.' 🛑"
+        image_url: 'https://images.unsplash.com/photo-1517466787929-bc90951d0974?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', // Placeholder football image
+        summary: "Training footage released today shows Amad scoring worldies against Onana. The kid is knocking on the door. Surely he starts the next one? His close control in tight spaces is exactly what we need against low blocks.",
+        punditry: "Training watch: 'He stayed behind for 30 mins practicing free kicks. The dedication is elite.' <br><br> Comments saying: 'If he doesn't start, we riot.' 🛑"
     },
     { 
         id: 'jan31_2', created_utc: 1769936400, date: '2026-01-31',
         title: 'Mainoo Contract Talks', ups: 4100, permalink: '/r/reddevils/top/?t=week', 
-        summary: "Reports circulating that Kobbie Mainoo is close to signing a new long-term deal. Starboy staying put.",
-        punditry: "Tier 1 sources: 'It's done. Just waiting for the announcement video.' 🎬"
+        image_url: 'https://images.unsplash.com/photo-1522778119026-d647f0565c6a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', // Placeholder contract/writing
+        summary: "Reports circulating that Kobbie Mainoo is close to signing a new long-term deal. Starboy staying put. Give him whatever he wants. This secures our midfield future for the next decade.",
+        punditry: "Contract news: 'base salary £80k rising to £120k. Fair deal for everyone. No release clause.' <br><br> Tier 1 sources: 'It's done. Just waiting for the announcement video.' 🎬"
     },
 
     // --- JAN 30 EDITION (Generic/Mock History) ---
@@ -63,15 +70,17 @@ const MOCK_REDDIT_DATA = [
         id: 'jan30_1', created_utc: 1769846400, date: '2026-01-30',
         title: 'Stadium Expansion Update', ups: 5100, 
         permalink: '/r/reddevils/top/?t=month', 
-        summary: "New renders of the Old Trafford expansion have leaked. Looks like they are keeping the brickwork but modernizing the roof.",
-        punditry: "Local fans: 'As long as the leaky roof goes, we are happy.' ☔"
+        image_url: 'https://images.unsplash.com/photo-1577223625816-7546f13df25d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', // Placeholder stadium
+        summary: "New renders of the Old Trafford expansion have leaked. Looks like they are keeping the brickwork but modernizing the roof. Capacity set to increase to 90,000. It's about time we had a world class stadium again.",
+        punditry: "Architecture nerd: 'The acoustics on that new North Stand are going to be insane. They angled it specifically to trap noise.' <br><br> Local fans: 'As long as the leaky roof goes, we are happy.' ☔"
     },
     { 
         id: 'jan30_2', created_utc: 1769850000, date: '2026-01-30',
         title: 'Academy Win vs Liverpool', ups: 3700, 
         permalink: '/r/reddevils/top/?t=month', 
-        summary: "U18s smashed Liverpool 4-0. The future is bright. Hat-trick from the new signing.",
-        punditry: "Academy watchers: 'This batch is special. Class of 26?' 🎓"
+        image_url: 'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', // Placeholder football
+        summary: "U18s smashed Liverpool 4-0. The future is bright. Hat-trick from the new signing. This U18 team is unbeaten in 15 games now. The pipeline is flowing.",
+        punditry: "Scout report: 'The #9 is the real deal. Shades of young Rooney. Aggressive, direct, clinical.' <br><br> Academy watchers: 'This batch is special. Class of 26?' 🎓"
     },
 
     // --- JAN 29 EDITION (Generic/Mock History) ---
@@ -79,8 +88,9 @@ const MOCK_REDDIT_DATA = [
         id: 'jan29_1', created_utc: 1769760000, date: '2026-01-29',
         title: 'Transfer Deadline Looming', ups: 3800, 
         permalink: '/r/reddevils/top/?t=month', 
-        summary: "Last few days of the window. Rumors of a loan move for a backup striker. Things are heating up.",
-        punditry: "Transfer thread: 'Don't go to sleep. Woodward is cooking (jk).' 🍳"
+        image_url: 'https://images.unsplash.com/photo-1508163223045-1880bc36e222?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', // Placeholder deadline
+        summary: "Last few days of the window. Rumors of a loan move for a backup striker. Things are heating up. We need cover if Hojlund gets injured again. Links to Guirassy have cooled down.",
+        punditry: "Romano update: 'United pushing for one more. It depends on outgoings.' <br><br> Transfer thread: 'Don't go to sleep. Woodward is cooking (jk).' 🍳"
     }
 ];
 
@@ -228,6 +238,14 @@ const template = (date, content, prevDate, nextDate) => `
             border-color: #fff;
         }
 
+        .card-media {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 3px solid #333;
+            filter: brightness(0.9);
+        }
+
         .card-content { padding: 2rem; }
 
         .badge { 
@@ -243,6 +261,7 @@ const template = (date, content, prevDate, nextDate) => `
             transform: rotate(5deg);
             border: 2px solid #fff;
             box-shadow: 5px 5px 0 #000;
+            z-index: 10;
         }
         .badge.shock { background: #ffe600; color: #000; }
         .badge.retro { background: #00ffff; color: #000; }
@@ -343,10 +362,25 @@ datesToGenerate.forEach((date, index) => {
         // Include Punditry if available
         const punditHtml = post.punditry ? 
             `<div class="pundit-box">🗣️ ${post.punditry}</div>` : '';
+        
+        // Media (Image/Video)
+        let mediaHtml = '';
+        if (post.image_url) {
+            mediaHtml = `<img src="${post.image_url}" class="card-media" alt="${post.title}">`;
+            if (post.video) {
+                // Add play button overlay for videos (simple CSS trick)
+                mediaHtml = `
+                <div style="position: relative;">
+                    ${mediaHtml}
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 4rem; color: rgba(255,255,255,0.8); text-shadow: 0 0 10px #000;">▶️</div>
+                </div>`;
+            }
+        }
 
         return `
             <div class="card">
                 <span class="badge ${badge.class}">${badge.text}</span>
+                ${mediaHtml}
                 <div class="card-content">
                     <h2>${post.title}</h2>
                     <p>${brainrotText}</p>
