@@ -1,53 +1,10 @@
-const fs = require('fs');
-const path = require('path');
 
-// --- CONFIG ---
-const PROJECT_DIR = '/Users/kevinbolger/local/projects/red-devils';
-const HISTORY_FILE = path.join(PROJECT_DIR, 'history.json');
-const TARGET_SUBREDDIT = 'reddevils';
-
-// Ensure history file exists
-if (!fs.existsSync(HISTORY_FILE)) {
-    fs.writeFileSync(HISTORY_FILE, JSON.stringify({ processed_posts: [] }, null, 2));
-}
-
-// --- DATA SOURCE ---
-const DATA_FILE = path.join(PROJECT_DIR, 'data.json');
-let MOCK_REDDIT_DATA = [];
-
-if (fs.existsSync(DATA_FILE)) {
-    console.log(`[INFO] Loading data from ${DATA_FILE}`);
-    MOCK_REDDIT_DATA = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
-} else {
-    console.log('[WARN] No data.json found, using empty array (or fallback if configured)');
-}
-
-// --- GENERATOR LOGIC ---
-
-function getBadge(theme) {
-    if (theme.type === 'sentiment' || theme.type === 'chatter') return { text: 'THE CHATTER 🗣️', class: 'retro' };
-    if (theme.title.includes('CONTRACT')) return { text: 'OFFICIAL 📝', class: 'shock' };
-    return { text: 'VIRAL 🔥', class: '' };
-}
-
-// Helper to get path components from "YYYY-MM-DD"
-const getDatePath = (dateStr) => {
-    const [y, m, d] = dateStr.split('-');
-    return { y, m, d, fullPath: path.join(y, m, d) };
-};
-
-const getLinkToDate = (targetDateStr) => {
-    const { y, m, d } = getDatePath(targetDateStr);
-    return `../../../${y}/${m}/${d}/`;
-};
-
-const template = (date, content, prevDate, nextDate) => `
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RED DEVILS HYPE - ${date}</title>
+    <title>RED DEVILS HYPE - 2026-02-02</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,900&display=swap');
         
@@ -230,7 +187,7 @@ const template = (date, content, prevDate, nextDate) => `
 
 <header>
     <h1>RED DEVILS FR FR 🔴</h1>
-    <span class="subtitle">EDITION: ${date}</span>
+    <span class="subtitle">EDITION: 2026-02-02</span>
 </header>
 
 <div class="ticker-wrap">
@@ -240,13 +197,73 @@ const template = (date, content, prevDate, nextDate) => `
 </div>
 
 <div class="nav-bar">
-    ${prevDate ? `<a href="${getLinkToDate(prevDate)}">← ${prevDate}</a>` : '<span>← PREV</span>'}
+    <span>← PREV</span>
     <a href="../../../">ARCHIVE</a>
-    ${nextDate ? `<a href="${getLinkToDate(nextDate)}">${nextDate} →</a>` : '<span>NEXT →</span>'}
+    <span>NEXT →</span>
 </div>
 
 <div class="container">
-    ${content}
+    
+            <div class="card">
+                <span class="badge ">VIRAL 🔥</span>
+                <img src="https://preview.redd.it/ahmq77n7pwgg1.jpeg?width=960&crop=smart&auto=webp&s=123c33959b1d89400b592d578d1878f9d7310e9f" class="card-media" alt="FT: UNITED 3-2 FULHAM 🔴">
+                <div class="card-content">
+                    <h2>FT: UNITED 3-2 FULHAM 🔴</h2>
+                    <p>FERGIE TIME! Benjamin Sesko scores a 94th-minute winner to seal a dramatic 3-2 comeback against Fulham. Casemiro and Cunha also on the scoresheet. Old Trafford is bouncing.</p>
+                    <div class="pundit-box">SCENES 🤯: 'Never in doubt. Carrick Ball is chaos and I love it.'</div>
+                    <div class="links-container">
+                        <a href="https://www.reddit.com/r/reddevils/comments/1qt2a70/" target="_blank" class="source-link">Post Match Thread</a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card">
+                <span class="badge ">VIRAL 🔥</span>
+                
+            <video controls autoplay muted loop class="card-media">
+                <source src="https://v.redd.it/firhutdqr1hg1/CMAF_720.mp4?source=fallback" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+                <div class="card-content">
+                    <h2>SESKO WINNER: STRETFORD END VIEW 🎥</h2>
+                    <p>A fan angle of the winner shows the absolute limbs in the Stretford End. The noise when that ball hit the net...</p>
+                    <div class="pundit-box">LIMBS 📈: 'This is what it's all about. Look at that passion.'</div>
+                    <div class="links-container">
+                        <a href="https://www.reddit.com/r/reddevils/comments/1qtq6am/" target="_blank" class="source-link">Watch Video</a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card">
+                <span class="badge retro">THE CHATTER 🗣️</span>
+                <img src="https://preview.redd.it/8gaovqkdg3hg1.png?width=960&crop=smart&auto=webp&s=26270e94319830e3ec44a0549e12e544db3fa657" class="card-media" alt="AQUAMAN IS A RED 🔱">
+                <div class="card-content">
+                    <h2>AQUAMAN IS A RED 🔱</h2>
+                    <p>Jason Momoa spotted at Old Trafford rocking the kit. Even superheroes can't resist the theatre of dreams.</p>
+                    <div class="pundit-box">CELEB WATCH 👀: 'He can probably play CDM if Ugarte needs a rest.'</div>
+                    <div class="links-container">
+                        <a href="https://www.reddit.com/r/reddevils/comments/1qtwyz6/" target="_blank" class="source-link">View Post</a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card">
+                <span class="badge ">VIRAL 🔥</span>
+                
+            <video controls autoplay muted loop class="card-media">
+                <source src="https://v.redd.it/u79jjjxih3hg1/CMAF_720.mp4?source=fallback" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+                <div class="card-content">
+                    <h2>MAINOO: THE GENERAL 🫡</h2>
+                    <p>Kobbie Mainoo putting in a crunching tackle that set the tone. 19 years old and bossing the midfield.</p>
+                    <div class="pundit-box">COMMANDER 🛡️: 'He wins the ball and starts the attack. World class.'</div>
+                    <div class="links-container">
+                        <a href="https://www.reddit.com/r/reddevils/comments/1qtx5cn/" target="_blank" class="source-link">Watch Tackle</a>
+                    </div>
+                </div>
+            </div>
+        
 </div>
 
 <div class="footer">
@@ -255,120 +272,3 @@ const template = (date, content, prevDate, nextDate) => `
 
 </body>
 </html>
-`;
-
-// --- MAIN EXECUTION ---
-
-// Get unique dates from data, sorted
-const datesToGenerate = [...new Set(MOCK_REDDIT_DATA.map(p => p.date))].sort();
-
-if (datesToGenerate.length === 0) {
-    console.log('[WARN] No dates found in data. Nothing to generate.');
-}
-
-datesToGenerate.forEach((date, index) => {
-    // 1. Filter Themes for Date
-    const themes = MOCK_REDDIT_DATA.filter(p => p.date === date);
-
-    if (themes.length === 0) return;
-
-    // 2. Build HTML Content
-    const cardsHtml = themes.map(theme => {
-        const badge = getBadge(theme);
-        
-        // Media
-        let mediaHtml = '';
-        if (theme.video_src) {
-            // Actual Video Embed
-            mediaHtml = `
-            <video controls autoplay muted loop class="card-media">
-                <source src="${theme.video_src}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>`;
-        } else if (theme.image_url) {
-            mediaHtml = `<img src="${theme.image_url}" class="card-media" alt="${theme.title}">`;
-        }
-
-        // Links
-        const linksHtml = theme.links.map(link => 
-            `<a href="${link.url.startsWith('http') || link.url.startsWith('#') ? link.url : 'https://reddit.com' + link.url}" target="_blank" class="source-link">${link.text}</a>`
-        ).join('');
-
-        return `
-            <div class="card">
-                <span class="badge ${badge.class}">${badge.text}</span>
-                ${mediaHtml}
-                <div class="card-content">
-                    <h2>${theme.title}</h2>
-                    <p>${theme.summary}</p>
-                    <div class="pundit-box">${theme.punditry}</div>
-                    <div class="links-container">
-                        ${linksHtml}
-                    </div>
-                </div>
-            </div>
-        `;
-    }).join('');
-
-    // 3. Determine Navigation
-    const prevDate = index > 0 ? datesToGenerate[index - 1] : null;
-    const nextDate = index < datesToGenerate.length - 1 ? datesToGenerate[index + 1] : null;
-
-    // 4. Generate Page
-    const html = template(date, cardsHtml, prevDate, nextDate);
-    
-    const { fullPath } = getDatePath(date);
-    const targetDir = path.join(PROJECT_DIR, fullPath);
-    if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
-    
-    fs.writeFileSync(path.join(targetDir, 'index.html'), html);
-    console.log(`[GENERATED] ${fullPath}/index.html`);
-});
-
-// 5. Update Archive (Same logic as before)
-const archiveHtml = `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RED DEVILS FR FR - ARCHIVE</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,900&display=swap');
-        body { font-family: 'Montserrat', sans-serif; background-color: #111; color: #fff; margin: 0; padding: 0; }
-        header { background: #DA291C; padding: 2rem; text-align: center; }
-        h1 { font-style: italic; text-transform: uppercase; margin: 0; }
-        .container { max-width: 600px; margin: 2rem auto; padding: 1rem; }
-        .archive-list { list-style: none; padding: 0; }
-        .archive-item { background: #1a1a1a; margin-bottom: 1rem; padding: 1rem; border-radius: 10px; border: 1px solid #333; display: flex; justify-content: space-between; align-items: center; transition: 0.2s; }
-        .archive-item:hover { transform: translateX(10px); border-color: #DA291C; }
-        .archive-item a { color: #fff; text-decoration: none; font-weight: bold; font-size: 1.2rem; display: block; width: 100%; }
-        .date { color: #666; font-size: 0.9rem; }
-    </style>
-</head>
-<body>
-<header>
-    <h1>ARCHIVE 📚</h1>
-    <p>HISTORY OF THE BRAINROT</p>
-</header>
-<div class="container">
-    <ul class="archive-list">
-        ${datesToGenerate.slice().reverse().map(date => {
-            const { y, m, d } = getDatePath(date);
-            return `
-            <li class="archive-item">
-                <a href="${y}/${m}/${d}/">
-                    EDITION: ${date} <br>
-                    <span class="date">See what we cooked on this day</span>
-                </a>
-                <span>➡️</span>
-            </li>
-            `;
-        }).join('')}
-    </ul>
-</div>
-</body>
-</html>
-`;
-fs.writeFileSync(path.join(PROJECT_DIR, 'index.html'), archiveHtml);
-console.log(`[ARCHIVE] Updated index.html`);

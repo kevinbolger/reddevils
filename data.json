@@ -1,0 +1,50 @@
+[
+  {
+    "id": "match_ft_fulham",
+    "date": "2026-02-02",
+    "type": "news",
+    "title": "FT: UNITED 3-2 FULHAM 🔴",
+    "summary": "FERGIE TIME! Benjamin Sesko scores a 94th-minute winner to seal a dramatic 3-2 comeback against Fulham. Casemiro and Cunha also on the scoresheet. Old Trafford is bouncing.",
+    "punditry": "SCENES 🤯: 'Never in doubt. Carrick Ball is chaos and I love it.'",
+    "links": [
+      { "text": "Post Match Thread", "url": "https://www.reddit.com/r/reddevils/comments/1qt2a70/" }
+    ],
+    "image_url": "https://preview.redd.it/ahmq77n7pwgg1.jpeg?width=960&crop=smart&auto=webp&s=123c33959b1d89400b592d578d1878f9d7310e9f"
+  },
+  {
+    "id": "sesko_goal_angle",
+    "date": "2026-02-02",
+    "type": "highlight",
+    "title": "SESKO WINNER: STRETFORD END VIEW 🎥",
+    "summary": "A fan angle of the winner shows the absolute limbs in the Stretford End. The noise when that ball hit the net...",
+    "punditry": "LIMBS 📈: 'This is what it's all about. Look at that passion.'",
+    "links": [
+      { "text": "Watch Video", "url": "https://www.reddit.com/r/reddevils/comments/1qtq6am/" }
+    ],
+    "video_src": "https://v.redd.it/firhutdqr1hg1/CMAF_720.mp4?source=fallback"
+  },
+  {
+    "id": "momoa_visit",
+    "date": "2026-02-02",
+    "type": "chatter",
+    "title": "AQUAMAN IS A RED 🔱",
+    "summary": "Jason Momoa spotted at Old Trafford rocking the kit. Even superheroes can't resist the theatre of dreams.",
+    "punditry": "CELEB WATCH 👀: 'He can probably play CDM if Ugarte needs a rest.'",
+    "links": [
+      { "text": "View Post", "url": "https://www.reddit.com/r/reddevils/comments/1qtwyz6/" }
+    ],
+    "image_url": "https://preview.redd.it/8gaovqkdg3hg1.png?width=960&crop=smart&auto=webp&s=26270e94319830e3ec44a0549e12e544db3fa657"
+  },
+  {
+    "id": "mainoo_tackle",
+    "date": "2026-02-02",
+    "type": "highlight",
+    "title": "MAINOO: THE GENERAL 🫡",
+    "summary": "Kobbie Mainoo putting in a crunching tackle that set the tone. 19 years old and bossing the midfield.",
+    "punditry": "COMMANDER 🛡️: 'He wins the ball and starts the attack. World class.'",
+    "links": [
+      { "text": "Watch Tackle", "url": "https://www.reddit.com/r/reddevils/comments/1qtx5cn/" }
+    ],
+    "video_src": "https://v.redd.it/u79jjjxih3hg1/CMAF_720.mp4?source=fallback"
+  }
+]
