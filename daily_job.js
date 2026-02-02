@@ -19,59 +19,68 @@ const MOCK_REDDIT_DATA = [
         id: '1qt2bqn', created_utc: 1769961818, date: '2026-02-01',
         title: 'Carrick Equals Record', ups: 6113, 
         permalink: '/r/reddevils/comments/1qt2bqn/michael_carrick_has_equalled_ruben_amorims/', 
-        summary: "Michael Carrick has equalled Ruben Amorim’s best-ever winning run at Manchester United (three games). Amorim had 47 games. Carrick has had 3. The stats don't lie. Everyone is asking if we judged him too harshly? The caretaker bounce is real."
+        summary: "Michael Carrick has equalled Ruben Amorim’s best-ever winning run at Manchester United (three games). Amorim had 47 games. Carrick has had 3. The stats don't lie.",
+        punditry: "Top comment: 'He's actually doing it. The mad lad.' Streets saying: Give him the contract now. 📝"
     },
     { 
         id: '1qt2vf3', created_utc: 1769963028, date: '2026-02-01',
         title: 'Sesko Air', ups: 4981, 
         permalink: '/r/reddevils/comments/1qt2vf3/air_šeško/', 
-        summary: "Benjamin Sesko posted 'Fergie Time' on Instagram after the late winner. The Stretford End is already singing his name. He's scored 4 in his last 3 games and looks like the 9 we've been waiting for."
+        summary: "Benjamin Sesko posted 'Fergie Time' on Instagram after the late winner. The Stretford End is already singing his name. He's scored 4 in his last 3 games.",
+        punditry: "Fans are losing it: 'We finally have a striker who feeds on chaos.' 😤"
     },
     { 
         id: '1qt2w12', created_utc: 1769963065, date: '2026-02-01',
         title: 'Bruno 12 Assists', ups: 2646, 
         permalink: '/r/reddevils/comments/1qt2w12/bruno_fernandes_has_registered_12_assists_in_the/', 
-        summary: "Bruno Fernandes has registered 12 assists in the Premier League this season, equalling his best-ever return. He is still the heartbeat of this team. Where would we be without our Portuguese Magnifico?"
+        summary: "Bruno Fernandes has registered 12 assists in the Premier League this season, equalling his best-ever return. He is still the heartbeat of this team.",
+        punditry: "Analysis: 'People said he was washed. He took that personally.' 🐐"
     },
     { 
         id: '1qt52h6', created_utc: 1769967790, date: '2026-02-01',
         title: 'Casemiro Standing Ovation', ups: 4603, 
         permalink: '/r/reddevils/comments/1qt52h6/casemiro_received_a_standing_ovation_from_old/', 
-        summary: "Casemiro received a massive standing ovation from Old Trafford. That no-look assist was pure filth. Form is temporary, class is permanent."
+        summary: "Casemiro received a massive standing ovation from Old Trafford. That no-look assist was pure filth.",
+        punditry: "Reddit reacts: 'Class is permanent. Form is temporary. Respect the tank.' 🛡️"
     },
 
-    // --- JAN 31 EDITION (Historical Filler/Context) ---
+    // --- JAN 31 EDITION (Generic/Mock History - STRICTLY DIFFERENT CONTENT) ---
     { 
         id: 'jan31_1', created_utc: 1769932800, date: '2026-01-31',
         title: 'Amad Training Screamers', ups: 3000, permalink: '/r/reddevils/top/?t=week', 
-        summary: "Training footage released today shows Amad scoring worldies against Onana. The kid is knocking on the door. Surely he starts the next one?"
+        summary: "Training footage released today shows Amad scoring worldies against Onana. The kid is knocking on the door.",
+        punditry: "Comments saying: 'If he doesn't start, we riot.' 🛑"
     },
     { 
         id: 'jan31_2', created_utc: 1769936400, date: '2026-01-31',
         title: 'Mainoo Contract Talks', ups: 4100, permalink: '/r/reddevils/top/?t=week', 
-        summary: "Reports circulating that Kobbie Mainoo is close to signing a new long-term deal. Starboy staying put. Give him whatever he wants."
+        summary: "Reports circulating that Kobbie Mainoo is close to signing a new long-term deal. Starboy staying put.",
+        punditry: "Tier 1 sources: 'It's done. Just waiting for the announcement video.' 🎬"
     },
 
-    // Jan 30 Window
+    // --- JAN 30 EDITION (Generic/Mock History) ---
     { 
         id: 'jan30_1', created_utc: 1769846400, date: '2026-01-30',
-        title: 'McTominay Quotes', ups: 5100, 
+        title: 'Stadium Expansion Update', ups: 5100, 
         permalink: '/r/reddevils/top/?t=month', 
-        summary: "Scott McTominay quoted saying he loves Carrick's style. 'The freedom is back'. Shades of 2021 McSauce. He looks revitalized in the box-to-box role."
+        summary: "New renders of the Old Trafford expansion have leaked. Looks like they are keeping the brickwork but modernizing the roof.",
+        punditry: "Local fans: 'As long as the leaky roof goes, we are happy.' ☔"
     },
     { 
         id: 'jan30_2', created_utc: 1769850000, date: '2026-01-30',
-        title: 'Spidercam Goals', ups: 3700, 
+        title: 'Academy Win vs Liverpool', ups: 3700, 
         permalink: '/r/reddevils/top/?t=month', 
-        summary: "Footage released of the team goal vs City. It looks like a video game. 24 passes leading to the finish. One of the best team goals we've scored in years."
+        summary: "U18s smashed Liverpool 4-0. The future is bright. Hat-trick from the new signing.",
+        punditry: "Academy watchers: 'This batch is special. Class of 26?' 🎓"
     },
 
-    // Jan 29 Window
+    // --- JAN 29 EDITION (Generic/Mock History) ---
     { 
         id: 'jan29_1', created_utc: 1769760000, date: '2026-01-29',
-        title: 'Maguire IG', ups: 3800, 
+        title: 'Transfer Deadline Looming', ups: 3800, 
         permalink: '/r/reddevils/top/?t=month', 
-        summary: "Harry Maguire bantering on IG with the youth players. Morale seems at an all time high in the camp. Good to see the captain leading the vibes."
+        summary: "Last few days of the window. Rumors of a loan move for a backup striker. Things are heating up.",
+        punditry: "Transfer thread: 'Don't go to sleep. Woodward is cooking (jk).' 🍳"
     }
 ];
 
@@ -261,6 +270,16 @@ const template = (date, content, prevDate, nextDate) => `
             margin-top: 10px;
         }
 
+        .pundit-box {
+            background-color: #222;
+            border-left: 3px solid #ff00de;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-style: italic;
+            color: #ccc;
+            font-size: 0.95rem;
+        }
+
         .source-link { 
             display: inline-block; 
             margin-top: 10px;
@@ -321,12 +340,17 @@ datesToGenerate.forEach((date, index) => {
     const cardsHtml = posts.map(post => {
         const badge = getBadge(post);
         const brainrotText = generateBrainrotText(post);
+        // Include Punditry if available
+        const punditHtml = post.punditry ? 
+            `<div class="pundit-box">🗣️ ${post.punditry}</div>` : '';
+
         return `
             <div class="card">
                 <span class="badge ${badge.class}">${badge.text}</span>
                 <div class="card-content">
                     <h2>${post.title}</h2>
                     <p>${brainrotText}</p>
+                    ${punditHtml}
                     <a href="https://reddit.com${post.permalink}" target="_blank" class="source-link">[View on Reddit]</a>
                 </div>
             </div>
