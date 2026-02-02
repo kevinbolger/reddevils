@@ -275,7 +275,7 @@ const template = (date, content, prevDate, nextDate) => `
 
 <div class="ticker-wrap">
     <div class="ticker">
-        🚨 BREAKING: OLD TRAFFORD IS COOKING 🔥 ETH WHO? 👀 TEN HAG ERA OVER? 🛑 GGMU 🛑 THE TITLE CHARGE STARTS NOW 🛑 AMORIM BALL 🛑
+        🚨 BREAKING: CARRICK BALL IS HERE 🛑 THE NEW FERGIE? 👀 UNBEATEN RUN CONTINUES 🛑 GGMU 🛑 TOP 4 CHARGE IS ON 🛑 TRUST THE PROCESS 🛑
     </div>
 </div>
 
