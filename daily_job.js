@@ -41,32 +41,30 @@ const MOCK_REDDIT_DATA = [
         id: 'theme_midfield_ogs', date: '2026-02-01',
         type: 'theme',
         title: 'THE OGs ARE COOKING 🥘', 
-        image_url: 'https://external-preview.redd.it/cGh5NWwzMG91d2dnMRSuD_3jpL-m5o-Hq1ArzUoQ-jal4N5l_YIIvul3eruD.png?width=960&crop=smart&format=pjpg&auto=webp&s=d2d51a4d3ded473985fca10895cd3f95cba41bfd',
-        video: true,
+        video_src: 'https://v.redd.it/bgkxixynuwgg1/CMAF_720.mp4?source=fallback',
         summary: "Apologize to Casemiro right now. Standing ovation at Old Trafford. No-look assist. Meanwhile, Bruno matched his best-ever assist record (12). The old guard isn't finished yet.",
         punditry: "VIBE CHECK ✅: 'Class is permanent. Form is temporary. Put some respect on the tank.'",
         links: [
-            { text: "Watch the Case assist 🎥", url: "https://reddit.com/r/reddevils/comments/1qt52h6/" },
             { text: "Bruno Stats 📈", url: "https://reddit.com/r/reddevils/comments/1qt2w12/" }
         ]
     },
 
     // --- JAN 31 EDITION (Thematic Filler) ---
     { 
-        id: 'theme_amad_ball', date: '2026-01-31',
-        type: 'theme',
-        title: 'AMAD HIVE WE EATING 🍯', 
-        image_url: 'https://images.unsplash.com/photo-1517466787929-bc90951d0974?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', 
-        summary: "Training clips dropped and Amad is ending careers. The close control is illegal. With Antony looking lost, the RW spot is Amad's to lose.",
-        punditry: "THE STREETS 🛣️: 'If he doesn't start on Saturday, we march on Carrington.'",
-        links: [{ text: "See the clips", url: "#" }]
+        id: 'theme_chatter_amad', date: '2026-01-31',
+        type: 'chatter', // New type: Pure Chatter
+        title: 'THE STREETS ARE TALKING 🗣️',
+        image_url: 'https://images.unsplash.com/photo-1517466787929-bc90951d0974?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+        summary: "The timeline is unanimous: Amad Diallo must start. The propaganda is in full swing.",
+        punditry: "Top comments: <br> • 'He's literally Messi regen.' <br> • 'Antony could never.' <br> • 'Start him or we riot.' 🛑",
+        links: [{ text: "Join the debate", url: "#" }]
     },
     { 
         id: 'theme_contracts', date: '2026-01-31',
         type: 'theme',
         title: 'STARBOY SECURED 🔒', 
         image_url: 'https://images.unsplash.com/photo-1522778119026-d647f0565c6a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', 
-        summary: "Mainoo contract talks are done. Long term deal. No release clause. We are building the future around him and Garnacho.",
+        summary: "Mainoo contract talks are done. Long term deal. No release clause. We are building the future around him and Yoro.",
         punditry: "TIER 1 🥇: 'Here we go imminent. The project is safe.'",
         links: [{ text: "Read more", url: "#" }]
     },
@@ -354,20 +352,20 @@ datesToGenerate.forEach((date, index) => {
         
         // Media
         let mediaHtml = '';
-        if (theme.image_url) {
+        if (theme.video_src) {
+            // Actual Video Embed
+            mediaHtml = `
+            <video controls autoplay muted loop class="card-media">
+                <source src="${theme.video_src}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>`;
+        } else if (theme.image_url) {
             mediaHtml = `<img src="${theme.image_url}" class="card-media" alt="${theme.title}">`;
-            if (theme.video) {
-                mediaHtml = `
-                <div style="position: relative;">
-                    ${mediaHtml}
-                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 4rem; color: rgba(255,255,255,0.8); text-shadow: 0 0 10px #000;">▶️</div>
-                </div>`;
-            }
         }
 
         // Links
         const linksHtml = theme.links.map(link => 
-            `<a href="${link.url.startsWith('http') ? link.url : 'https://reddit.com' + link.url}" target="_blank" class="source-link">${link.text}</a>`
+            `<a href="${link.url.startsWith('http') || link.url.startsWith('#') ? link.url : 'https://reddit.com' + link.url}" target="_blank" class="source-link">${link.text}</a>`
         ).join('');
 
         return `
