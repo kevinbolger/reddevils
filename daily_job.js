@@ -13,22 +13,49 @@ if (!fs.existsSync(HISTORY_FILE)) {
 
 // --- MOCK DATA (In production this would fetch from Reddit API) ---
 // We are simulating accurate 24h windows (9AM GMT - 9AM GMT)
-// Timestamps are hypothetical relative to the target date.
 const MOCK_REDDIT_DATA = [
     // Feb 1 Window (Jan 31 09:00 - Feb 01 09:00)
-    { id: 'feb01_1', created_utc: 1770019200, title: 'Carrick Equals Record', ups: 6000, permalink: '/r/reddevils/1', date: '2026-02-01' },
-    { id: 'feb01_2', created_utc: 1770022800, title: 'Sesko Air', ups: 5000, permalink: '/r/reddevils/2', date: '2026-02-01' },
+    { 
+        id: 'feb01_1', created_utc: 1770019200, date: '2026-02-01',
+        title: 'Carrick Equals Record', ups: 6000, permalink: '/r/reddevils/1', 
+        summary: "Michael Carrick has equalled Ruben Amorim’s best-ever winning run at Manchester United (three games). Amorim had 47 games. Carrick has had 3. The stats don't lie. Everyone is asking if we judged him too harshly? The caretaker bounce is real."
+    },
+    { 
+        id: 'feb01_2', created_utc: 1770022800, date: '2026-02-01',
+        title: 'Sesko Air', ups: 5000, permalink: '/r/reddevils/2', 
+        summary: "Benjamin Sesko posted 'Fergie Time' on Instagram after the late winner. The Stretford End is already singing his name. He's scored 4 in his last 3 games and looks like the 9 we've been waiting for."
+    },
     
     // Jan 31 Window
-    { id: 'jan31_1', created_utc: 1769932800, title: 'Bruno 6 Years', ups: 4500, permalink: '/r/reddevils/3', date: '2026-01-31' },
-    { id: 'jan31_2', created_utc: 1769936400, title: 'Amad Heatmap', ups: 3000, permalink: '/r/reddevils/4', date: '2026-01-31' },
+    { 
+        id: 'jan31_1', created_utc: 1769932800, date: '2026-01-31',
+        title: 'Bruno 6 Years', ups: 4500, permalink: '/r/reddevils/3', 
+        summary: "6 years ago today we signed him. 150 G/A later, he is still the heartbeat of this team. Where would we be without our Portuguese Magnifico? A club legend in the making."
+    },
+    { 
+        id: 'jan31_2', created_utc: 1769936400, date: '2026-01-31',
+        title: 'Amad Heatmap', ups: 3000, permalink: '/r/reddevils/4', 
+        summary: "Heatmap shows he was everywhere on the right wing. Created 4 chances, 3 successful dribbles. Why is he not starting every game? The connection with Dalot is frightening."
+    },
 
     // Jan 30 Window
-    { id: 'jan30_1', created_utc: 1769846400, title: 'McTominay Quotes', ups: 5100, permalink: '/r/reddevils/5', date: '2026-01-30' },
-    { id: 'jan30_2', created_utc: 1769850000, title: 'Spidercam Goals', ups: 3700, permalink: '/r/reddevils/6', date: '2026-01-30' },
+    { 
+        id: 'jan30_1', created_utc: 1769846400, date: '2026-01-30',
+        title: 'McTominay Quotes', ups: 5100, permalink: '/r/reddevils/5', 
+        summary: "Scott McTominay quoted saying he loves Carrick's style. 'The freedom is back'. Shades of 2021 McSauce. He looks revitalized in the box-to-box role."
+    },
+    { 
+        id: 'jan30_2', created_utc: 1769850000, date: '2026-01-30',
+        title: 'Spidercam Goals', ups: 3700, permalink: '/r/reddevils/6', 
+        summary: "Footage released of the team goal vs City. It looks like a video game. 24 passes leading to the finish. One of the best team goals we've scored in years."
+    },
 
     // Jan 29 Window
-    { id: 'jan29_1', created_utc: 1769760000, title: 'Maguire IG', ups: 3800, permalink: '/r/reddevils/7', date: '2026-01-29' }
+    { 
+        id: 'jan29_1', created_utc: 1769760000, date: '2026-01-29',
+        title: 'Maguire IG', ups: 3800, permalink: '/r/reddevils/7', 
+        summary: "Harry Maguire bantering on IG with the youth players. Morale seems at an all time high in the camp. Good to see the captain leading the vibes."
+    }
 ];
 
 // --- GENERATOR LOGIC ---
@@ -40,8 +67,6 @@ function getBadge(post) {
 }
 
 function generateBrainrotText(post) {
-    // Simple heuristics to "brainrot-ify" the text
-    const text = post.title; 
     const phrases = [
         "No cap. The timeline is healing. Fr fr. 😤",
         "We are so back. 📈",
@@ -52,7 +77,8 @@ function generateBrainrotText(post) {
         "Absolute scenes. 📸"
     ];
     const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
-    return `${text} ${randomPhrase}`;
+    // Return summary + brainrot
+    return `${post.summary} <br><br> <span class="brainrot">${randomPhrase}</span>`;
 }
 
 // Helper to get path components from "YYYY-MM-DD"
@@ -206,31 +232,29 @@ const template = (date, content, prevDate, nextDate) => `
             text-shadow: 2px 2px 0 #ff0000;
         }
 
-        p { font-size: 1.2rem; color: #ccc; margin-bottom: 1.5rem; font-weight: 500; line-height: 1.4; }
-
-        .btn { 
-            display: block; 
-            width: 100%; 
-            padding: 1.2rem; 
-            background: #fff; 
-            color: #000; 
-            text-align: center; 
-            text-decoration: none; 
-            font-weight: 900; 
-            text-transform: uppercase; 
-            font-size: 1.5rem;
-            border: 3px solid #000;
-            transition: 0.1s; 
-            box-sizing: border-box; 
+        p { font-size: 1.1rem; color: #ccc; margin-bottom: 1.5rem; font-weight: 500; line-height: 1.6; border-left: 3px solid #333; padding-left: 1rem; }
+        
+        .brainrot {
+            color: #ff00de;
+            font-weight: 900;
             font-style: italic;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            display: block;
+            margin-top: 10px;
         }
-        .btn:hover { 
-            background: #ff00de; 
-            color: #fff; 
-            border-color: #fff;
-            box-shadow: 8px 8px 0px #000; 
-            transform: translate(-4px, -4px); 
+
+        .source-link { 
+            display: inline-block; 
+            margin-top: 10px;
+            color: #666; 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            text-transform: uppercase; 
+            font-weight: bold; 
+            transition: 0.2s;
         }
+        .source-link:hover { color: #fff; text-decoration: underline; }
 
         .footer { text-align: center; padding: 3rem; font-size: 1rem; opacity: 0.8; border-top: 5px dashed #333; margin-top: 4rem; font-weight: bold; text-transform: uppercase; }
     </style>
@@ -286,7 +310,7 @@ datesToGenerate.forEach((date, index) => {
                 <div class="card-content">
                     <h2>${post.title}</h2>
                     <p>${brainrotText}</p>
-                    <a href="https://reddit.com${post.permalink}" target="_blank" class="btn">FULL STORY 🔗</a>
+                    <a href="https://reddit.com${post.permalink}" target="_blank" class="source-link">[View on Reddit]</a>
                 </div>
             </div>
         `;
