@@ -11,113 +11,149 @@ if (!fs.existsSync(HISTORY_FILE)) {
     fs.writeFileSync(HISTORY_FILE, JSON.stringify({ processed_posts: [] }, null, 2));
 }
 
-// --- MOCK DATA (Thematic Brainrot Approach) ---
-// We are simulating accurate 24h windows (9AM GMT - 9AM GMT)
+// --- MOCK DATA (The Big Mix) ---
 const MOCK_REDDIT_DATA = [
-    // --- FEB 01 EDITION (Meta-Commentary & Themes) ---
+    // --- FEB 01 EDITION (The Big Mix: News + Sentiment + Chatter) ---
+    // 1. The Main Sentiment (Meta)
     { 
         id: 'sentiment_contract', date: '2026-02-01',
         type: 'sentiment',
         title: 'GIVE HIM THE CONTRACT 📝', 
         image_url: 'https://preview.redd.it/ahmq77n7pwgg1.jpeg?width=960&crop=smart&auto=webp&s=123c33959b1d89400b592d578d1878f9d7310e9f',
-        summary: "We aren't just reacting to the win record. We are reacting to the *vibes*. The 'Interim' label feels like an insult now. The timeline is unanimous: lock Michael Carrick down before Real Madrid gets any ideas.",
-        punditry: "THE CONSENSUS 🤝: It's not recency bias. It's eyes-open reality. The players would run through a brick wall for him. Stop the search. He is him.",
-        links: [
-            { text: "The Petition (Thread) 📜", url: "https://reddit.com/r/reddevils/comments/1qt2bqn/" },
-            { text: "McTominay's Endorsement 🗣️", url: "https://reddit.com/r/reddevils/comments/1qod6kd/" }
-        ]
+        summary: "The timeline is unanimous. After 3 wins in 3 games, the 'Interim' label feels disrespectful. The players are playing for him. The fans are singing for him.",
+        punditry: "THE CONSENSUS 🤝: 'Stop the search. We found him. It was right under our nose.'",
+        links: [{ text: "The Petition Thread", url: "https://reddit.com/r/reddevils/comments/1qt2bqn/" }]
     },
+    // 2. The Hard News (Stat)
     { 
-        id: 'analysis_tactics', date: '2026-02-01',
-        type: 'analysis',
-        title: 'TACTICAL MASTERCLASS: THE 4-3-3 IS BACK 🧠', 
-        image_url: 'https://images.unsplash.com/photo-1516216628259-9474995ae61e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', // Tactical board placeholder
-        summary: "While everyone celebrates the goals, the real ones are noticing the shape. No more chaotic pressing. We controlled the midfield for 90 minutes. Bruno playing deeper? Genius. Casemiro protected? Essential.",
-        punditry: "NERD CORNER 🤓: 'The heatmap doesn't lie. We actually used the width today. Amorim ball was too narrow. This is heritage United football.'",
-        links: [
-            { text: "See the Heatmaps 🗺️", url: "#" }
-        ]
+        id: 'news_carrick_record', date: '2026-02-01',
+        type: 'news',
+        title: 'CARRICK EQUALS AMORIM 📊', 
+        summary: "Stat of the day: Michael Carrick has equalled Ruben Amorim's *entire* Manchester United winning record (3 games) in just one week. Amorim needed 47 games.",
+        punditry: "REALITY CHECK 💀: 'That stat is actually depressing but also hilarious. We are healing.'",
+        links: [{ text: "See the numbers", url: "https://reddit.com/r/reddevils/comments/1qt2bqn/" }]
     },
+    // 3. The Vibe (Atmosphere)
     { 
         id: 'vibe_stretford', date: '2026-02-01',
         type: 'vibe',
         title: 'THE STRETFORD END IS HEALING ❤️‍🩹', 
-        video_src: 'https://v.redd.it/bgkxixynuwgg1/CMAF_720.mp4?source=fallback', // Casemiro ovation video
-        summary: "You could hear it through the TV. The roar when Casemiro came off? That wasn't just applause; that was an apology. The toxicity is gone. Nature is healing.",
-        punditry: "FEELS 🥺: 'I haven't heard Old Trafford this loud since Fergie left. We are so back.'",
-        links: [
-            { text: "Listen to the roar 🔊", url: "https://reddit.com/r/reddevils/comments/1qt52h6/" }
-        ]
+        video_src: 'https://v.redd.it/bgkxixynuwgg1/CMAF_720.mp4?source=fallback',
+        summary: "Listen to that roar. The toxicity is gone. Old Trafford sounded like a fortress again today. When Casemiro went off, the standing ovation was deafening.",
+        punditry: "FEELS 🥺: 'I haven't heard it this loud since Fergie left. Nature is healing.'",
+        links: [{ text: "Watch the ovation", url: "https://reddit.com/r/reddevils/comments/1qt52h6/" }]
     },
+    // 4. The Highlight (Sesko)
     { 
-        id: 'theme_sesko', date: '2026-02-01',
-        type: 'theme',
-        title: 'A STRIKER WHO BULLIES PEOPLE 🦍', 
+        id: 'news_sesko', date: '2026-02-01',
+        type: 'news',
+        title: 'AIR ŠEŠKO CLEARED FOR TAKEOFF ✈️', 
         image_url: 'https://preview.redd.it/wlxfluxsswgg1.jpeg?width=960&crop=smart&auto=webp&s=ec3b789a9e1f9568fe958e1edf11fb4a27413d83',
-        summary: "Sesko isn't just scoring; he is traumatizing defenders. The comment section is filled with people crying tears of joy because we finally won a header in the opposition box.",
-        punditry: "REAL TALK 💯: 'We used to pray for times like this. A proper #9. Hojlund + Sesko = Chaos.'",
-        links: [
-            { text: "Sesko Highlights", url: "https://reddit.com/r/reddevils/comments/1qt2vf3/" }
-        ]
+        summary: "Benjamin Sesko posted 'Fergie Time' on Instagram. He's scored 4 in his last 3. We finally have a target man who bullies defenders.",
+        punditry: "ON GOD ✝️: 'Cross and Inshallah actually works when you have a 6'5 striker.'",
+        links: [{ text: "Check the post", url: "https://reddit.com/r/reddevils/comments/1qt2vf3/" }]
+    },
+    // 5. The Chatter (Casemiro)
+    { 
+        id: 'chatter_casemiro', date: '2026-02-01',
+        type: 'chatter',
+        title: 'APOLOGY FORMS: CASEMIRO 📝', 
+        summary: "The entire subreddit is filling out apology forms for Casemiro. From 'finished' to 'essential' in 3 games under Carrick.",
+        punditry: "TOP COMMENT: 'I owe you an apology. I wasn't familiar with your game (again).' 🙇‍♂️",
+        links: [{ text: "Apology Thread", url: "#" }]
+    },
+    // 6. The Player Stat (Bruno)
+    { 
+        id: 'news_bruno', date: '2026-02-01',
+        type: 'news',
+        title: 'BRUNO: 12 ASSISTS 🪄', 
+        image_url: 'https://preview.redd.it/yq6iwb2uswgg1.png?width=960&crop=smart&auto=webp&s=7e4d5aa94acfe4eb3ff6a6a5b7ae38306f13730b',
+        summary: "Bruno has equalled his best-ever PL assist tally. Playing deeper in the 4-3-3 has unlocked his passing range.",
+        punditry: "ANALYSIS 🧠: 'He's not running around like a headless chicken anymore. He's controlling the game.'",
+        links: [{ text: "View stats", url: "https://reddit.com/r/reddevils/comments/1qt2w12/" }]
     },
 
-    // --- JAN 31 EDITION (Thematic Filler) ---
+    // --- JAN 31 EDITION (Expanded) ---
     { 
-        id: 'theme_chatter_amad', date: '2026-01-31',
-        type: 'chatter', // New type: Pure Chatter
-        title: 'THE STREETS ARE TALKING 🗣️',
-        image_url: 'https://images.unsplash.com/photo-1517466787929-bc90951d0974?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-        summary: "The timeline is unanimous: Amad Diallo must start. The propaganda is in full swing.",
-        punditry: "Top comments: <br> • 'He's literally Messi regen.' <br> • 'Antony could never.' <br> • 'Start him or we riot.' 🛑",
-        links: [{ text: "Join the debate", url: "#" }]
+        id: 'news_amad_training', date: '2026-01-31',
+        type: 'news',
+        title: 'AMAD IN TRAINING ⚡', 
+        image_url: 'https://images.unsplash.com/photo-1517466787929-bc90951d0974?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', 
+        summary: "Clips from Carrington show Amad destroying defenders. His close control is frightening.",
+        punditry: "EYE TEST 👁️: 'He looks sharper than Antony ever has. Start him.'",
+        links: [{ text: "Watch clip", url: "#" }]
     },
     { 
-        id: 'theme_contracts', date: '2026-01-31',
-        type: 'theme',
-        title: 'STARBOY SECURED 🔒', 
+        id: 'chatter_rw_debate', date: '2026-01-31',
+        type: 'chatter',
+        title: 'THE RW DEBATE IS OVER 🛑', 
+        summary: "The timeline has decided. No more debates. Amad is the starter. Garnacho (LW) and Amad (RW) is the future.",
+        punditry: "THE STREETS 🛣️: 'If I see Antony on the teamsheet, I'm turning the TV off.'",
+        links: [{ text: "Discussion", url: "#" }]
+    },
+    { 
+        id: 'news_mainoo', date: '2026-01-31',
+        type: 'news',
+        title: 'MAINOO CONTRACT 🔒', 
         image_url: 'https://images.unsplash.com/photo-1522778119026-d647f0565c6a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', 
-        summary: "Mainoo contract talks are done. Long term deal. No release clause. We are building the future around him and Yoro.",
-        punditry: "TIER 1 🥇: 'Here we go imminent. The project is safe.'",
-        links: [{ text: "Read more", url: "#" }]
+        summary: "Breaking: Mainoo close to signing new 5-year deal. The project is safe.",
+        punditry: "TIER 1 🥇: 'Done deal. Announcement soon.'",
+        links: [{ text: "Read details", url: "#" }]
     },
 
-    // --- JAN 30 EDITION ---
+    // --- JAN 30 EDITION (Expanded) ---
     { 
-        id: 'theme_stadium', date: '2026-01-30',
-        type: 'theme',
-        title: 'OLD TRAFFORD 2.0 🏟️', 
+        id: 'news_stadium', date: '2026-01-30',
+        type: 'news',
+        title: 'OLD TRAFFORD 2.0 LEAKS 🏟️', 
         image_url: 'https://images.unsplash.com/photo-1577223625816-7546f13df25d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', 
-        summary: "New renders leaked. 90k capacity. The 'Wembley of the North' is actually happening. They are keeping the Munich tunnel but upgrading everything else.",
-        punditry: "LOCAL MOOD ☔: 'Just fix the roof lad. I'm tired of getting wet.'",
+        summary: "Renders leaked of the expansion. 90k capacity. Looks like a spaceship landed on the brickwork.",
+        punditry: "FAN REACTION 😲: 'It's beautiful. Just don't name it the Snapdragon Arena please.'",
         links: [{ text: "See renders", url: "#" }]
     },
     { 
-        id: 'theme_academy', date: '2026-01-30',
-        type: 'theme',
-        title: 'KIDS ARE ALRIGHT 👶', 
+        id: 'chatter_glazers', date: '2026-01-30',
+        type: 'chatter',
+        title: 'GLAZERS OUT (STILL) 🔰', 
+        summary: "Even with the stadium news, the fans aren't buying it. Green and Gold sentiment is still high in the comments.",
+        punditry: "REAL TALK 💯: 'New roof doesn't fix the debt. We haven't forgotten.'",
+        links: [{ text: "Protest Thread", url: "#" }]
+    },
+    { 
+        id: 'news_academy', date: '2026-01-30',
+        type: 'news',
+        title: 'U18s BATTER LIVERPOOL 4-0 👶', 
         image_url: 'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', 
-        summary: "U18s smashed Liverpool 4-0. This generation is special. The pipeline from Carrington to the first team hasn't looked this healthy since '92.",
-        punditry: "SCOUT REPORT 🕵️: 'The new #9 is a demon. Fast track him.'",
+        summary: "The kids are alright. Another hat-trick for the new signing. Unbeaten in 15.",
+        punditry: "SCOUT WATCH 🕵️: 'The future is blindingly bright.'",
         links: [{ text: "Match Report", url: "#" }]
     },
 
-    // --- JAN 29 EDITION ---
+    // --- JAN 29 EDITION (Expanded) ---
     { 
-        id: 'theme_transfer', date: '2026-01-29',
-        type: 'theme',
+        id: 'news_transfer', date: '2026-01-29',
+        type: 'news',
         title: 'DEADLINE DAY PANIC 🚨', 
         image_url: 'https://images.unsplash.com/photo-1508163223045-1880bc36e222?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80', 
-        summary: "Woodward (spiritually) is cooking. We need a backup striker. Loans are being explored. It's gonna be a long night.",
-        punditry: "ITK WATCH 👀: 'Plane spotted landing at Manchester Airport. Don't go to sleep.'",
+        summary: "Rumors swirling about a backup striker loan. We are thin up top.",
+        punditry: "ITK WATCH 👀: 'Plane from Germany just landed. Could be anyone.'",
         links: [{ text: "Live Thread", url: "#" }]
+    },
+    { 
+        id: 'chatter_maguire', date: '2026-01-29',
+        type: 'chatter',
+        title: 'MAGUIRE ON INSTAGRAM 😂', 
+        summary: "Harry Maguire bantering the youth players in the comments. The vibes are immaculate.",
+        punditry: "VIBES ✅: 'He might not be the starter, but he is the captain of vibes.'",
+        links: [{ text: "See comment", url: "#" }]
     }
 ];
 
 // --- GENERATOR LOGIC ---
 
 function getBadge(theme) {
-    if (theme.title.includes('REVOLUTION')) return { text: 'WTF 🤯', class: 'shock' };
-    if (theme.title.includes('OGs')) return { text: 'RETRO 📼', class: 'retro' };
+    if (theme.type === 'sentiment' || theme.type === 'chatter') return { text: 'THE CHATTER 🗣️', class: 'retro' };
+    if (theme.title.includes('CONTRACT')) return { text: 'OFFICIAL 📝', class: 'shock' };
     return { text: 'VIRAL 🔥', class: '' };
 }
 
