@@ -14,7 +14,7 @@ if (!fs.existsSync(HISTORY_FILE)) {
 // --- MOCK DATA (In production this would fetch from Reddit API) ---
 // We are simulating accurate 24h windows (9AM GMT - 9AM GMT)
 const MOCK_REDDIT_DATA = [
-    // Feb 1 Window (Jan 31 09:00 - Feb 01 09:00)
+    // --- FEB 01 EDITION (Real Data from Today) ---
     { 
         id: '1qt2bqn', created_utc: 1769961818, date: '2026-02-01',
         title: 'Carrick Equals Record', ups: 6113, 
@@ -27,22 +27,32 @@ const MOCK_REDDIT_DATA = [
         permalink: '/r/reddevils/comments/1qt2vf3/air_šeško/', 
         summary: "Benjamin Sesko posted 'Fergie Time' on Instagram after the late winner. The Stretford End is already singing his name. He's scored 4 in his last 3 games and looks like the 9 we've been waiting for."
     },
-    
-    // Jan 31 Window
     { 
-        id: '1qt2w12', created_utc: 1769963065, date: '2026-01-31',
+        id: '1qt2w12', created_utc: 1769963065, date: '2026-02-01',
         title: 'Bruno 12 Assists', ups: 2646, 
         permalink: '/r/reddevils/comments/1qt2w12/bruno_fernandes_has_registered_12_assists_in_the/', 
         summary: "Bruno Fernandes has registered 12 assists in the Premier League this season, equalling his best-ever return. He is still the heartbeat of this team. Where would we be without our Portuguese Magnifico?"
     },
     { 
-        id: '1qt52h6', created_utc: 1769967790, date: '2026-01-31',
+        id: '1qt52h6', created_utc: 1769967790, date: '2026-02-01',
         title: 'Casemiro Standing Ovation', ups: 4603, 
         permalink: '/r/reddevils/comments/1qt52h6/casemiro_received_a_standing_ovation_from_old/', 
         summary: "Casemiro received a massive standing ovation from Old Trafford. That no-look assist was pure filth. Form is temporary, class is permanent."
     },
 
-    // Jan 30 Window (Mocking older real posts for structure)
+    // --- JAN 31 EDITION (Historical Filler/Context) ---
+    { 
+        id: 'jan31_1', created_utc: 1769932800, date: '2026-01-31',
+        title: 'Amad Training Screamers', ups: 3000, permalink: '/r/reddevils/top/?t=week', 
+        summary: "Training footage released today shows Amad scoring worldies against Onana. The kid is knocking on the door. Surely he starts the next one?"
+    },
+    { 
+        id: 'jan31_2', created_utc: 1769936400, date: '2026-01-31',
+        title: 'Mainoo Contract Talks', ups: 4100, permalink: '/r/reddevils/top/?t=week', 
+        summary: "Reports circulating that Kobbie Mainoo is close to signing a new long-term deal. Starboy staying put. Give him whatever he wants."
+    },
+
+    // Jan 30 Window
     { 
         id: 'jan30_1', created_utc: 1769846400, date: '2026-01-30',
         title: 'McTominay Quotes', ups: 5100, 
